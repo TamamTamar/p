@@ -18,46 +18,14 @@ const Cards = ({ favoritesOnly = false }) => {
     setFavorites(currentFavorites);
   }, []);
 
-  /* function addToFavorites(cardId: string) {
-    const currentFavorites = [...favorites];
-    if (currentFavorites.includes(cardId)) {
-      const index = currentFavorites.indexOf(cardId);
-      currentFavorites.splice(index, 1);
-    } else {
-      currentFavorites.push(cardId);
-    }
-    setFavorites(currentFavorites);
-    localStorage.setItem("favorites", JSON.stringify(currentFavorites));
-  } */
+  const addToFavorites = (cardId: string) => {
+    const newFavorites = favorites.includes(cardId)
+        ? favorites.filter(id => id !== cardId)
+        : [...favorites, cardId];
+    setFavorites(newFavorites);
+    localStorage.setItem('favorites', JSON.stringify(newFavorites));
+};
 
-  const addToFavorites = async (cardId: string) => {
-    try {
-      // Example of how to use the token to call the API
-    /*   await axios.patch(
-        `https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards/${cardId}`,
-        {}, // No data required for patching
-        { headers: { 'x-auth-token': token } }
-      ); */
-
-      // Update the local favorites list
-      const currentFavorites = [...favorites];
-      if (currentFavorites.includes(cardId)) {
-        const index = currentFavorites.indexOf(cardId);
-        currentFavorites.splice(index, 1);
-      } else {
-        currentFavorites.push(cardId);
-      }
-      setFavorites(currentFavorites);
-
-
-
-      /* localStorage.setItem("favorites", JSON.stringify(currentFavorites)); */
-
-
-    } catch (e) {
-      console.error("Failed to update favorite status:", e);
-    }
-  }
 
   const filteredCards = favoritesOnly
     ? contextCards.filter(card => favorites.includes(card._id))
