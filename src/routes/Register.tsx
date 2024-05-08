@@ -18,9 +18,10 @@ const Register = () => {
     register,
     control,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<RegisterUser>({
     defaultValues: registerMock,
+    mode: "onChange",
   });
 
   const { register: registerUser } = useAuth();
@@ -286,17 +287,6 @@ const Register = () => {
             <p className="text-red-500">{errors.address?.zip?.message}</p>
           )}
         </section>
-
-        {/* isBusiness */}
-        {/*   <section className="checkbox-container">
-          <label htmlFor="isBusiness">Business</label>
-          <input id="isBusiness" type="checkbox" {...register("isBusiness")} />
-          {errors.isBusiness && (
-            <p className="text-red-500">{errors.isBusiness?.message}</p>
-          )}
-        </section> */}
-
-        {/* isBusiness */}
         <section className="checkbox-container" >
           <label htmlFor="isBusiness">Business</label>
           <input className="check"
@@ -312,7 +302,7 @@ const Register = () => {
         </section>
 
 
-        <button type="submit">Register</button>
+        <button disabled = {!isValid} type="submit">Register</button>
         <div className="mt-4 text-center">
           <span className="text-sm text-gray-700 dark:text-gray-300">Already have an account? </span>
           <Link className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500" to="/login">Login</Link>

@@ -32,12 +32,18 @@ export const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
+
       {
         path: "/favorites",
-        element: <Cards favoritesOnly={true} />,
+        element: (
+          <ProtectedRoute>
+           <Cards favoritesOnly={true} />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/create-card",
+        
         element: <CreateCard />,
       },
       {

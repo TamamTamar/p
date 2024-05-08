@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Spinners from '../components/Spinners';
 import FavoriteButton from '../components/FavoriteButton';
 import { AuthContext } from '../contexts/AuthContext';
-import './Cards.scss';
+
 import './MyCard.scss';
 import { FaEdit, FaPlus, FaTrash } from 'react-icons/fa';
 import { Card } from '../@types/cardData';

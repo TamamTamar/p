@@ -75,6 +75,7 @@ const UpdateCard = () => {
     return (
         <div className="create-card-container bg-purple-900  text-white dark:bg-slate-600">
         <form  noValidate onSubmit={handleSubmit(onUpdateCard)}>
+            <h2>Update Card</h2>
             {/* Title */}
             <section>
                 <input
@@ -155,26 +156,36 @@ const UpdateCard = () => {
                     placeholder="State"
                     {...register('address.state')}
                 />
+                 </section>
+                 <section>
                 <input
                     className="create-card-input"
                     placeholder="Country"
                     {...register('address.country')}
                 />
+                 </section>
+                 <section>
                 <input
                     className="create-card-input"
                     placeholder="City"
                     {...register('address.city')}
                 />
+                 </section>
+                 <section>
                 <input
                     className="create-card-input"
                     placeholder="Street"
                     {...register('address.street')}
                 />
+                 </section>
+                 <section>
                 <input
                     className="create-card-input"
                     placeholder="House Number"
                     {...register('address.houseNumber')}
                 />
+                 </section>
+                 <section>
                 <input
                     className="create-card-input"
                     placeholder="Zip"
@@ -182,7 +193,7 @@ const UpdateCard = () => {
                 />
             </section>
 
-            <button className="submit-button">Update Card</button>
+            <button type="submit" className="submit-button">Update</button>
         </form>
         </div>
     );
