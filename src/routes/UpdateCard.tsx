@@ -2,8 +2,8 @@ import { useForm } from 'react-hook-form';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-import { useContext, useEffect } from 'react';
-import { AuthContext, useAuth } from '../contexts/AuthContext';
+import {useEffect } from 'react';
+import {useAuth } from '../contexts/AuthContext';
 import './CreateCard.scss';
 import { CardType } from '../@types/cardData';
 
@@ -52,46 +52,7 @@ const UpdateCard = () => {
 
   
 
-    // Function to recursively remove unwanted fields from the card object
-  /*   const cleanCard = (card) => {
-        const removeFields = ['_id', 'likes', 'user_id', 'createdAt', '__v', 'bizNumber'];
-
-        const cleanObject = (obj) => {
-            const result = {};
-            for (const key in obj) {
-                if (!removeFields.includes(key)) {
-                    if (typeof obj[key] === 'object' && obj[key] !== null) {
-                        result[key] = cleanObject(obj[key]);
-                    } else {
-                        result[key] = obj[key];
-                    }
-                }
-            }
-            return result;
-        };
-        return cleanObject(card);
-    };
-
-    const onUpdateCard = (card: CardType) => {
-        // Clean the card object to remove specific fields
-        const sanitizedCard = cleanCard(card);
-
-        console.log("Attempting to update card with sanitized data:", sanitizedCard);
-
-        axios.put(url, sanitizedCard, {
-            headers: { 'x-auth-token': token }
-        })
-            .then(() => {
-                navigate('/my-cards');
-            })
-            .catch(err => {
-                console.error('Error updating card:', err);
-                if (err.response) {
-                    console.error('API Error Response:', err.response.data); // Log error response
-                }
-            });
-    }; */
-
+  
     const onUpdateCard = (card: CardType) => {
         const sanitizedCard = mapToAllowedFields(card);
 

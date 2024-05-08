@@ -23,11 +23,14 @@ const Navbar = () => {
         {isLoggedIn && user?.isBusiness && (
           <NavLink to="/my-cards">My Cards</NavLink>
         )}
+
+        {isLoggedIn && user?.isBusiness && (
+          <NavLink to="/create-card">Create card</NavLink>
+        )}
       </div>
-      <div className="nav-center">
-        <Search />
-      </div>
+   
       <div className="nav-right">
+      <Search />
         {!isLoggedIn && <NavLink to="/register">Register</NavLink>}
         {!isLoggedIn && <NavLink to="/login">Login</NavLink>}
         {isLoggedIn && (

@@ -4,6 +4,7 @@ import { LoginUser } from "../@types/types";
 import dialogs, { showSuccessDialog } from "../ui/dialogs";
 import patterns from "../validation/patterns";
 import { useAuth } from "../contexts/AuthContext";
+import './CreateCard.scss';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -30,11 +31,11 @@ const Login = () => {
 
   return (
     <div>
-      <h2>Login Page</h2>
       <form noValidate onSubmit={handleSubmit(onLogin)}>
         {/* email */}
         <section>
-          <input
+          <input   
+            className="create-card-input"
             placeholder="Email"
             autoCapitalize="true"
             autoCorrect="false"
@@ -51,6 +52,7 @@ const Login = () => {
         {/* password */}
         <section>
           <input
+            className="create-card-input"
             autoComplete="current-password"
             placeholder="Password"
             type="password"
