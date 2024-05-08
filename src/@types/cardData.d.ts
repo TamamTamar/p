@@ -36,3 +36,32 @@ type FavoriteButtonProps = {
     onToggleFavorite: (cardId: string) => void; // Adjust this as per the new API call
     token: string; // Pass the authentication token
 };
+
+export type CardType = {
+    _id: string;
+    title: string;
+    subtitle: string;
+    description: string;
+    phone: string;
+    email: string;
+    web: string;
+    image: {
+      url: string;
+      alt: string;
+      _id: string;
+    };
+    address: {
+      state: string;
+      country: string;
+      city: string;
+      street: string;
+      houseNumber: number;
+      zip: number;
+      _id: string;
+    };
+    bizNumber: number;
+    likes: string[];
+    user_id: string;
+    createdAt: string;
+    __v: number;
+  };

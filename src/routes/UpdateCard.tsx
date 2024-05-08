@@ -1,12 +1,13 @@
 import { useForm } from 'react-hook-form';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { CardType } from '../@types/types';
+
 import { useContext, useEffect } from 'react';
 import { AuthContext, useAuth } from '../contexts/AuthContext';
 import './CreateCard.scss';
+import { CardType } from '../@types/cardData';
 
-const mapToAllowedFields = (card: CardType): SanitizedCardType => ({
+const mapToAllowedFields = (card: CardType) => ({
     title: card.title,
     subtitle: card.subtitle,
     description: card.description,

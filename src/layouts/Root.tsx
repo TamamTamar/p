@@ -12,11 +12,6 @@ const Root = () => {
       <main className="flex-1">
         <Outlet />
       </main>
-      {isLoggedIn && <div>
-        IsBusiness : {user?.isBusiness ? "Yes" : "No"}
-        <br />
-        Name: {user?.name.first} {user?.name.last}
-      </div>}
       <Footer />
     </div>
   );

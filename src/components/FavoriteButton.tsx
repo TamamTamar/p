@@ -7,9 +7,9 @@ import { isFavoriteUrl } from '../services/cards';
 
 const FavoriteButton: FC<FavoriteButtonProps> = ({ cardId, isFavorite, onToggleFavorite, token }) => {
     const toggleFavorite = () => {
-      
+
         // Make a PATCH request to toggle favorite status on the server
-      isFavoriteUrl(cardId)
+        isFavoriteUrl(cardId)
             .then(() => {
                 onToggleFavorite(cardId); // Update local state after successful server call
             })

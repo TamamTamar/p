@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { CardType } from "../@types/types";
+
 import { getCards } from "../services/cards";
+import { CardType } from "../@types/cardData";
 
 // cards/myCards/favoriteCards
 
@@ -26,5 +27,5 @@ export const useCards = () => {
       });
   }, []);
 
-  return { cards, loading, error, setCards};
+  return { cards, loading, error, setCards };
 };

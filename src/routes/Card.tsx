@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { CardType, ErrorType } from "../@types/types";
+
 import { getCardById } from "../services/cards";
 import "./Card.scss";
 import { FaEnvelope, FaGlobe, FaHeart, FaPhone } from "react-icons/fa";
+import { CardType } from "../@types/cardData";
+import { ErrorType } from "../@types/types";
 
 const Card = () => {
 
