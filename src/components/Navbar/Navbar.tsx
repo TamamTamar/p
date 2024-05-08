@@ -5,6 +5,7 @@ import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
 import "./Navbar.scss";
 import { useAuth } from "../../contexts/AuthContext";
 import Search from "../Search/Search";
+import About from "../About/About";
 
 const Navbar = () => {
   const { isLoggedIn, user, logout } = useAuth();
@@ -16,8 +17,8 @@ const Navbar = () => {
       <div className="nav-left">
         <NavLink to="/" className="brand">
           <FaHome />
-          Home
         </NavLink>
+        <NavLink className="link" to="/about">About</NavLink>
         {isLoggedIn && <NavLink to="/favorites"><span style={{ display: 'inline-block' }}>Favorites</span></NavLink>}
 
         {isLoggedIn && user?.isBusiness && (
@@ -28,11 +29,10 @@ const Navbar = () => {
           <NavLink to="/create-card">Create card</NavLink>
         )}
       </div>
-
+     
       <div className="nav-right">
-        <Search />
-        {!isLoggedIn && <NavLink to="/register">Register</NavLink>}
-        {!isLoggedIn && <NavLink to="/login">Login</NavLink>}
+    
+        {!isLoggedIn && <NavLink className="link" to="/login">login</NavLink>}
         {isLoggedIn && (
           <button
             onClick={() => {
@@ -42,6 +42,7 @@ const Navbar = () => {
           >
             Logout
           </button>
+          
         )}
 
 
@@ -49,6 +50,7 @@ const Navbar = () => {
 
 
         <DarkModeToggle />
+        <Search/>
       </div>
     </nav>
   );

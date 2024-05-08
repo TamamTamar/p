@@ -10,6 +10,7 @@ import Profile from "./Profile.tsx";
 import CreateCard from "./CreateCard.tsx";
 import MyCards from "./MyCards.tsx";
 import UpdateCard from "./UpdateCard.tsx";
+import About from "../components/About/About.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +23,7 @@ export const router = createBrowserRouter([
       { path: "/login", element: <Login /> },
       { path: "/cards", element: <Cards /> },
       { path: "/cards/:id", element: <Card /> },
+      {path:"/about", element:<About/>},
       {
         path: "/profile",
         element: (

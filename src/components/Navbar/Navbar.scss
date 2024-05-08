@@ -23,4 +23,13 @@
     flex-direction: row;
     gap: 1rem;
   }
+  .link {
+    cursor: pointer;
+    text-decoration: none;
+
+
+    &:hover {
+      color: #333;
+    }
+  }
 }
