@@ -4,7 +4,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
 import "./Navbar.scss";
 import { useAuth } from "../../contexts/AuthContext";
-import Search from "../../routes/Search";
+import Search from "../Search/Search";
 
 const Navbar = () => {
   const { isLoggedIn, user, logout } = useAuth();
@@ -28,9 +28,9 @@ const Navbar = () => {
           <NavLink to="/create-card">Create card</NavLink>
         )}
       </div>
-   
+
       <div className="nav-right">
-      <Search />
+        <Search />
         {!isLoggedIn && <NavLink to="/register">Register</NavLink>}
         {!isLoggedIn && <NavLink to="/login">Login</NavLink>}
         {isLoggedIn && (

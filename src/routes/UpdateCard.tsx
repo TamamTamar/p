@@ -182,7 +182,7 @@ const UpdateCard = () => {
                 />
             </section>
 
-            <button type="submit" className="submit-button">Update Card</button>
+            <button className="submit-button">Update Card</button>
         </form>
         </div>
     );

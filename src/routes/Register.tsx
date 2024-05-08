@@ -1,14 +1,15 @@
 import { useForm } from "react-hook-form";
 import { RegisterUser } from "../@types/types";
 import patterns from "../validation/patterns";
-import "./Register.scss";
+
+import "./CreateCard.scss";
 import { DevTool } from "@hookform/devtools";
 import { BsEye, BsEyeSlashFill } from "react-icons/bs";
 import { ChangeEvent, useState } from "react";
 import { registerMock } from "../mocks/register";
 import auth from "../services/auth";
 import dialogs from "../ui/dialogs";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
 const Register = () => {
@@ -39,17 +40,17 @@ const Register = () => {
       })
   };
 
-  const handleBusinessCheckboxChange = (e:ChangeEvent<HTMLInputElement>) => {
+  const handleBusinessCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
     setIsBusiness(e.target.checked);
   };
 
   return (
-    <div className="register-container">
-      <h2>Register</h2>
+    <div className="create-card-container bg-purple-900  text-white dark:bg-slate-600">
       <form noValidate onSubmit={handleSubmit(onRegister)}>
         {/* firstName */}
         <section>
           <input
+          
             placeholder="First Name"
             type="text"
             {...register("name.first", {
@@ -296,9 +297,9 @@ const Register = () => {
         </section> */}
 
         {/* isBusiness */}
-        <section className="checkbox-container">
+        <section className="checkbox-container" >
           <label htmlFor="isBusiness">Business</label>
-          <input
+          <input className="check"
             id="isBusiness"
             type="checkbox"
             defaultChecked={isBusiness}
@@ -312,6 +313,10 @@ const Register = () => {
 
 
         <button type="submit">Register</button>
+        <div className="mt-4 text-center">
+          <span className="text-sm text-gray-700 dark:text-gray-300">Already have an account? </span>
+          <Link className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500" to="/login">Login</Link>
+        </div>
       </form>
       {/* <DevTool control={control} /> */}
     </div>

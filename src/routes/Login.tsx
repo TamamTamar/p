@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LoginUser } from "../@types/types";
 import dialogs, { showSuccessDialog } from "../ui/dialogs";
 import patterns from "../validation/patterns";
@@ -30,11 +30,11 @@ const Login = () => {
   } = useForm<LoginUser>();
 
   return (
-    <div>
+    <div className="create-card-container bg-purple-900  text-white dark:bg-slate-600">
       <form noValidate onSubmit={handleSubmit(onLogin)}>
         {/* email */}
         <section>
-          <input   
+          <input
             className="create-card-input"
             placeholder="Email"
             autoCapitalize="true"
@@ -48,6 +48,8 @@ const Login = () => {
           />
           {errors.email && <p>{errors.email?.message}</p>}
         </section>
+
+
 
         {/* password */}
         <section>
@@ -64,7 +66,16 @@ const Login = () => {
           {errors.password && <p>{errors.password?.message}</p>}
         </section>
 
-        <button>Login</button>
+        <button type="submit" className="submit-button">Login</button>
+
+        <div className="relative flex items-center mt-8">
+          <div className="border h-0 w-2/4 border-stone-300"></div>
+          <div className=" text-stone-300 px-4 text-sm font-normal">OR</div>
+          <div className=" border h-0 w-2/4 border-stone-300"></div>
+        </div>
+        <Link to="/register" type="submit"
+          className="border border-indigo-900 rounded-lg  text-center  text-indigo-900 bg-white text-base font-semibold w-full py-3 mt-9">Signup
+          now</Link>
       </form>
     </div>
   );
