@@ -1,15 +1,14 @@
 import { FC, useEffect, useState, useContext } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Spinners from '../components/Spinners';
 import FavoriteButton from '../components/FavoriteButton';
 import { AuthContext } from '../contexts/AuthContext';
 import './Cards.scss';
 import './MyCard.scss';
-import { FiEdit2 } from 'react-icons/fi';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import { Card } from '../@types/cardData';
 import { deleteCardById, getMyCards } from '../services/cards';
+import { useSearch } from '../hooks/useSearch';
 
 
 
@@ -17,8 +16,10 @@ const MyCards: FC = () => {
     const [cards, setCards] = useState<Card[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
-    const { token } = useContext(AuthContext);
+    const authContext = useContext(AuthContext);
+    const token = authContext ? authContext.token : null;
     const [favorites, setFavorites] = useState<string[]>(() => JSON.parse(localStorage.getItem('favorites') || '[]'));
+    const { searchTerm } = useSearch();
 
     useEffect(() => {
         if (!token) {
@@ -58,17 +59,19 @@ const MyCards: FC = () => {
         localStorage.setItem('favorites', JSON.stringify(newFavorites));
     };
 
+    const filteredCards = cards.filter(c => c.title.toLowerCase().includes(searchTerm.toLowerCase()));
+
+
     if (!token) return <p>Please log in to view your cards.</p>;
     if (loading) return <Spinners />;
     if (error) return <div>Error loading your cards: {error}</div>;
 
+
     return (
         <div className="cards-container dark:bg-gray-700">
-            {cards.map((card: Card) => (
+            {filteredCards.map((card: Card) => (
                 <div key={card._id} >
-
                     <div>
-
                         <div className="card-link dark:bg-gray-500 dark:text-white rounded-lg shadow-lg p-4">
                             <div className="card-actions ">
                                 <Link to={`/update/${card._id}`} className="card-edit-icon">
