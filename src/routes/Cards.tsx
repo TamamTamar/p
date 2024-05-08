@@ -10,15 +10,16 @@ import { useAuth } from "../contexts/AuthContext";
 import axios from "axios";
 import { useSearch } from "../hooks/useSearch";
 import { CardType } from "../@types/cardData";
+import { getCards } from "../services/cards";
 
 
 
 
 
 const Cards = ({ favoritesOnly = false }) => {
-  const [cards, setCards] = useState<CardType[]>([]); 
-  const [loading, setLoading] = useState<boolean>(true); 
-  const [error, setError] = useState<string | null>(null); 
+  const [cards, setCards] = useState<CardType[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
   const [favorites, setFavorites] = useState<string[]>([]);
   const { token } = useAuth();
   const { searchTerm } = useSearch();
@@ -28,9 +29,7 @@ const Cards = ({ favoritesOnly = false }) => {
     setFavorites(currentFavorites);
 
     setLoading(true);
-    axios.get("https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards", {
-      headers: { 'x-auth-token': token }
-    })
+    getCards()
       .then((res) => {
         setCards(res.data);
       })
@@ -68,7 +67,7 @@ const Cards = ({ favoritesOnly = false }) => {
             <FavoriteButton
               cardId={card._id}
               isFavorite={favorites.includes(card._id)}
-              onToggleFavorite={addToFavorites} token={""}            
+              onToggleFavorite={addToFavorites} token={""}
             />
             <h2 className="card-title">{card.title}</h2>
             <hr />

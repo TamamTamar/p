@@ -5,7 +5,7 @@ import FavoriteButton from '../components/FavoriteButton';
 import { AuthContext } from '../contexts/AuthContext';
 import './Cards.scss';
 import './MyCard.scss';
-import { FaEdit, FaTrash } from 'react-icons/fa';
+import { FaEdit, FaPlus, FaTrash } from 'react-icons/fa';
 import { Card } from '../@types/cardData';
 import { deleteCardById, getMyCards } from '../services/cards';
 import { useSearch } from '../hooks/useSearch';
@@ -97,7 +97,11 @@ const MyCards: FC = () => {
                     </div>
                 </div>
             ))}
+             <Link to="/create-card" className="create-card-button"> 
+             <FaPlus/>
+             </Link>
         </div>
+       
     );
 };
 

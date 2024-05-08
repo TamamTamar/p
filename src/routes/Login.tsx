@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { LoginUser } from "../@types/types";
-import auth from "../services/auth";
 import dialogs, { showSuccessDialog } from "../ui/dialogs";
 import patterns from "../validation/patterns";
 import { useAuth } from "../contexts/AuthContext";
