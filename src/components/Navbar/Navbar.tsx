@@ -1,4 +1,4 @@
-import { FaHome } from "react-icons/fa";
+import { FaHome, FaRegCircle, FaUser } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
@@ -27,37 +27,33 @@ const Navbar = () => {
           <NavLink to="/create-card">Create card</NavLink>
         )}
       </div>
-     
+
       <div className="nav-right">
-          {isLoggedIn && (
-            <div className="user-menu">
-              <button className="user-name-button">
+        {isLoggedIn && (
+          <div className="user-menu">
+            <FaUser />
+            <div className="user-menu-content">
+              <button className="user-name-button mt-1">
                 {user && (
-                  <span>
+                  <span onClick={() => navigate("/profile")}>
                     {user.name.first.charAt(0).toUpperCase() + user.name.first.slice(1)}{' '}
                     {user.name.last.charAt(0).toUpperCase() + user.name.last.slice(1)}
                   </span>
                 )}
               </button>
-              <div className="user-menu-content">
-                <button
-                  onClick={() => {
-                    logout();
-                    navigate("/login");
-                  }}
-                >
-                  Logout
-                </button>
-              </div>
-              </div>
+              <button
+                onClick={() => {
+                  logout();
+                  navigate("/login");
+                }}
+              >
+                Logout
+              </button>
+            </div>
+          </div>
         )}
-
-
-        {/* {isLoggedIn && <NavLink to="/profile"> Profile</NavLink>} */}
-
-
         <DarkModeToggle />
-        <Search/>
+        <Search />
       </div>
     </nav>
   );

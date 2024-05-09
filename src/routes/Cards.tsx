@@ -48,7 +48,11 @@ const Cards = ({ favoritesOnly = false }) => {
   })
 
   return (
+    <>
+    <h1 className="text-7xl text-center p-3">Cards page</h1>
+    <p className="text-3xl text-center">Some text</p>
     <div className="cards-container dark:bg-gray-700">
+      
       {filteredCards.map((card: CardType) => (
         <div key={card._id}>
           <Link to={`/cards/${card._id}`} className="card-link dark:bg-gray-500 dark:text-white rounded-lg shadow-lg p-4">
@@ -68,6 +72,7 @@ const Cards = ({ favoritesOnly = false }) => {
         </div>
       ))}
     </div>
+    </>
   );
 };
 
