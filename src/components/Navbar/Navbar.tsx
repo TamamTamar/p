@@ -1,4 +1,5 @@
 import { FaHome, FaRegCircle, FaUser } from "react-icons/fa";
+import { PiWarningCircleBold } from "react-icons/pi";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";

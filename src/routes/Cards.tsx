@@ -17,7 +17,7 @@ const Cards = ({ favoritesOnly = false }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [favorites, setFavorites] = useState<string[]>([]);
-  const { token,isLoggedIn } = useAuth();
+  const { token, isLoggedIn } = useAuth();
   const { searchTerm } = useSearch();
 
   useEffect(() => {
@@ -35,11 +35,11 @@ const Cards = ({ favoritesOnly = false }) => {
 
   const addToFavorites = (cardId: string) => {
     const newFavorites = favorites.includes(cardId)
-        ? favorites.filter(id => id !== cardId)
-        : [...favorites, cardId];
+      ? favorites.filter(id => id !== cardId)
+      : [...favorites, cardId];
     setFavorites(newFavorites);
     localStorage.setItem('favorites', JSON.stringify(newFavorites));
-};
+  };
   const filteredCards = cards.filter(card => { // Filter cards based on search term and favorites
     const matchesSearchTerm = card.title.toLowerCase().includes(searchTerm.toLowerCase());
     return favoritesOnly
@@ -49,29 +49,27 @@ const Cards = ({ favoritesOnly = false }) => {
 
   return (
     <>
-    <h1 className="text-7xl text-center p-3">Cards page</h1>
-    <p className="text-3xl text-center">Some text</p>
-    <div className="cards-container dark:bg-gray-700">
-      
-      {filteredCards.map((card: CardType) => (
-        <div key={card._id}>
-          <Link to={`/cards/${card._id}`} className="card-link dark:bg-gray-500 dark:text-white rounded-lg shadow-lg p-4">
-            {isLoggedIn && (
+      <div className="cards-container dark:bg-gray-700">
+
+        {filteredCards.map((card: CardType) => (
+          <div key={card._id}>
+            <Link to={`/cards/${card._id}`} className="card-link dark:bg-gray-500 dark:text-white rounded-lg shadow-lg p-4">
+              {isLoggedIn && (
                 <FavoriteButton
-                cardId={card._id}
-                isFavorite={favorites.includes(card._id)}
-                onToggleFavorite={addToFavorites} token={""}
-              />
-            )}
-          
-            <h2 className="card-title">{card.title}</h2>
-            <hr />
-            <p className="card-subtitle">{card.subtitle}</p>
-            <img src={card.image.url} alt={card.image.alt} className="card-image" />
-          </Link>
-        </div>
-      ))}
-    </div>
+                  cardId={card._id}
+                  isFavorite={favorites.includes(card._id)}
+                  onToggleFavorite={addToFavorites} token={""}
+                />
+              )}
+
+              <h2 className="card-title">{card.title}</h2>
+              <hr />
+              <p className="card-subtitle">{card.subtitle}</p>
+              <img src={card.image.url} alt={card.image.alt} className="card-image" />
+            </Link>
+          </div>
+        ))}
+      </div>
     </>
   );
 };
