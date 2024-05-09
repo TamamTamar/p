@@ -11,7 +11,7 @@ const Navbar = () => {
 
   const navigate = useNavigate();
   return (
-    <nav className="site-navbar">
+    <nav className="site-navbar ">
       <div className="nav-left">
         <NavLink to="/" className="brand">
           <FaHome />
@@ -29,18 +29,27 @@ const Navbar = () => {
       </div>
      
       <div className="nav-right">
-    
-        {!isLoggedIn && <NavLink className="link" to="/login">login</NavLink>}
-        {isLoggedIn && (
-          <button
-            onClick={() => {
-              logout();
-              navigate("/login");
-            }}
-          >
-            Logout
-          </button>
-          
+          {isLoggedIn && (
+            <div className="user-menu">
+              <button className="user-name-button">
+                {user && (
+                  <span>
+                    {user.name.first.charAt(0).toUpperCase() + user.name.first.slice(1)}{' '}
+                    {user.name.last.charAt(0).toUpperCase() + user.name.last.slice(1)}
+                  </span>
+                )}
+              </button>
+              <div className="user-menu-content">
+                <button
+                  onClick={() => {
+                    logout();
+                    navigate("/login");
+                  }}
+                >
+                  Logout
+                </button>
+              </div>
+              </div>
         )}
 
 
