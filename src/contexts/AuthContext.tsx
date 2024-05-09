@@ -77,6 +77,7 @@ export const AuthContextProvider = ({ children }) => {
     setToken(null);
     setUser(undefined)
     localStorage.removeItem("token");
+    localStorage.removeItem("favorites");
   };
 
   return (

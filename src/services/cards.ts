@@ -9,7 +9,7 @@ export const getCardById = (id: string) => axios.get(baseUrl + `/${id}`);
 
 export const isFavoriteUrl = (id: string)  => {
     const url = `${baseUrl}/${id}`;
-    return axios.patch(url,{}, {
+    return axios.patch(url, {
       headers: {
         "x-auth-token": localStorage.getItem("token"),
       },

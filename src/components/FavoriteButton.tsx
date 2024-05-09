@@ -2,6 +2,7 @@ import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { FC } from 'react';
 import { FavoriteButtonProps } from '../@types/cardData';
 import { isFavoriteUrl } from '../services/cards';
+import dialogs from "../ui/dialogs";
 
 
 
@@ -14,7 +15,7 @@ const FavoriteButton: FC<FavoriteButtonProps> = ({ cardId, isFavorite, onToggleF
                 onToggleFavorite(cardId); // Update local state after successful server call
             })
             .catch(err => {
-                console.error('Error toggling favorite:', err);
+               dialogs.error("Error", err.response.data);
             });
     };
 
