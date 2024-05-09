@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CardData } from "../@types/cardData";
+import { CardData, updateCard } from "../@types/cardData";
 
 const baseUrl = "https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards";
 
@@ -9,7 +9,7 @@ export const getCardById = (id: string) => axios.get(baseUrl + `/${id}`);
 
 export const isFavoriteUrl = (id: string)  => {
     const url = `${baseUrl}/${id}`;
-    return axios.patch(url, {
+    return axios.patch(url,{}, {
       headers: {
         "x-auth-token": localStorage.getItem("token"),
       },
@@ -49,7 +49,7 @@ export const isFavoriteUrl = (id: string)  => {
       },
     });
   }
-  export const updateMyCard = (id: string, data:CardData)  => {
+  export const updateMyCard = (id: string, data:updateCard)  => {
     const url = `${baseUrl}/${id}`;
     return axios.put(url, data, {
       headers: {

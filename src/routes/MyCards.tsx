@@ -9,6 +9,7 @@ import { FaEdit, FaPlus, FaTrash } from 'react-icons/fa';
 import { Card } from '../@types/cardData';
 import { deleteCardById, getMyCards } from '../services/cards';
 import { useSearch } from '../hooks/useSearch';
+import { showConfirmDialog } from '../ui/dialogs';
 
 
 
@@ -39,8 +40,25 @@ const MyCards: FC = () => {
             });
     }, [token]);
 
+
+
     const deleteCard = (cardId: string) => {
-        if (window.confirm("Are you sure you want to delete this card?")) {
+        showConfirmDialog().then((result) => {
+            if (result.isConfirmed) {
+                deleteCardById(cardId)
+                    .then(() => {
+                        setCards(cards.filter(card => card._id !== cardId));
+                    })
+                    .catch(err => {
+                        console.error("Error deleting card:", err);
+                    });
+            }
+        });
+    }
+
+/*     const deleteCard = (cardId: string) => {
+      showConfirmDialog().then((result) => {
+        if (result) {
             deleteCardById(cardId)
                 .then(() => {
                     setCards(cards.filter(card => card._id !== cardId));
@@ -49,7 +67,7 @@ const MyCards: FC = () => {
                     console.error("Error deleting card:", err);
                 });
         }
-    };
+      ); */
 
     const addToFavorites = (cardId: string) => {
         const newFavorites = favorites.includes(cardId)

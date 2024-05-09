@@ -37,21 +37,13 @@ const Cards = ({ favoritesOnly = false }) => {
       .finally(() => setLoading(false));
   }, []);
 
-  const addToFavorites = async (cardId: string) => {
-    try {
-      const currentFavorites = [...favorites];
-      if (currentFavorites.includes(cardId)) {
-        const index = currentFavorites.indexOf(cardId);
-        currentFavorites.splice(index, 1);
-      } else {
-        currentFavorites.push(cardId);
-      }
-      setFavorites(currentFavorites);
-    } catch (e) {
-      console.error("Failed to update favorite status:", e);
-    }
-  };
-
+  const addToFavorites = (cardId: string) => {
+    const newFavorites = favorites.includes(cardId)
+        ? favorites.filter(id => id !== cardId)
+        : [...favorites, cardId];
+    setFavorites(newFavorites);
+    localStorage.setItem('favorites', JSON.stringify(newFavorites));
+};
   const filteredCards = cards.filter(card => { // Filter cards based on search term and favorites
     const matchesSearchTerm = card.title.toLowerCase().includes(searchTerm.toLowerCase());
     return favoritesOnly

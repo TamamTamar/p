@@ -26,6 +26,7 @@ const CreateCard = () => {
             });
         } catch (error) {
             dialogs.error("Error", error.response.data);
+            dialogs.error("Error", error.response.data);
         }
     };
 

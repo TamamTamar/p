@@ -5,11 +5,11 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import './CreateCard.scss';
-import { CardType } from '../@types/cardData';
+import { CardType, updateCard } from '../@types/cardData';
 import { getMyCardData, getMyCards, updateMyCard } from '../services/cards';
 import dialogs from '../ui/dialogs';
 
-const mapToAllowedFields = (card: CardType) => ({ 
+const mapToAllowedFields = (card: updateCard) => ({ 
     title: card.title,
     subtitle: card.subtitle,
     description: card.description,
@@ -53,7 +53,7 @@ const UpdateCard = () => {
 
 
 
-    const onUpdateCard = (card: CardType) => {
+    const onUpdateCard = (card: updateCard) => {
         const sanitizedCard = mapToAllowedFields(card);
         updateMyCard( id ?? "",sanitizedCard )
             .then(() => {

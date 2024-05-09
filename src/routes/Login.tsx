@@ -13,7 +13,7 @@ const Login = () => {
   const onLogin = (data: LoginUser) => {
     login(data.email, data.password)
       .then(() => {
-        showSuccessDialog("Login", "Logged in").then(() => {
+        dialogs.success("Login", "Logged in").then(() => {
           // send the user to home page
           navigate("/");
         });

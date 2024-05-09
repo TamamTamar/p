@@ -14,23 +14,23 @@
     font-size: 1.25rem;
     cursor: pointer;
     transition: transform 0.2s;
+    &:hover {
+        transform: scale(1.1);
+    }
 }
 
 .card-edit-icon {
     color: #a1c9f4;
+
     /* Adjust the color as needed */
 }
 
 .card-delete-icon {
     color: red;
+
     /* Adjust the color as needed */
 }
 
-.card-edit-icon:hover,
-.card-delete-icon:hover {
-    transform: scale(1.1);
-    /* Hover effect */
-}
 .create-card-button{
    position: absolute;
    top: 15%;
