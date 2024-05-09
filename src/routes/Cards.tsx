@@ -1,15 +1,11 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Spinners from "../components/Spinners";
-import { useCardContext } from "../contexts/CardsContext";
-import "./Cards.scss";
-import { useState, useEffect } from "react";
 import FavoriteButton from "../components/FavoriteButton";
-import { useCards } from "../hooks/useCards";
 import { useAuth } from "../contexts/AuthContext";
+import "./Cards.scss";
 
-import axios from "axios";
-import { useSearch } from "../hooks/useSearch";
 import { CardType } from "../@types/cardData";
+import { useSearch } from "../hooks/useSearch";
 import { getCards } from "../services/cards";
 
 

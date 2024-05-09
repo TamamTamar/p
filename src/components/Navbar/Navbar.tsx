@@ -1,11 +1,9 @@
-import { FaHeart, FaHome } from "react-icons/fa";
-import { RxAvatar } from "react-icons/rx";
+import { FaHome } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
-import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
-import "./Navbar.scss";
 import { useAuth } from "../../contexts/AuthContext";
+import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
 import Search from "../Search/Search";
-import About from "../About/About";
+import "./Navbar.scss";
 
 const Navbar = () => {
   const { isLoggedIn, user, logout } = useAuth();

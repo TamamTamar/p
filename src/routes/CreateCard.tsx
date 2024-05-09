@@ -1,11 +1,11 @@
 import { useForm } from "react-hook-form";
-import dialogs from "../ui/dialogs";
 import { useNavigate } from "react-router-dom";
+import { CardData } from "../@types/cardData";
+import { useAuth } from "../contexts/AuthContext";
+import { createNewCard } from "../services/cards";
+import dialogs from "../ui/dialogs";
 import patterns from "../validation/patterns";
 import "./CreateCard.scss";
-import { useAuth } from "../contexts/AuthContext";
-import { CardData } from "../@types/cardData";
-import { createNewCard } from "../services/cards";
 
 
 const CreateCard = () => {

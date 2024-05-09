@@ -2,15 +2,13 @@ import { useForm } from "react-hook-form";
 import { RegisterUser } from "../@types/types";
 import patterns from "../validation/patterns";
 
-import "./CreateCard.scss";
-import { DevTool } from "@hookform/devtools";
-import { BsEye, BsEyeSlashFill } from "react-icons/bs";
 import { ChangeEvent, useState } from "react";
-import { registerMock } from "../mocks/register";
-import auth from "../services/auth";
-import dialogs from "../ui/dialogs";
+import { BsEye, BsEyeSlashFill } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import { registerMock } from "../mocks/register";
+import dialogs from "../ui/dialogs";
+import "./CreateCard.scss";
 
 const Register = () => {
   const navigate = useNavigate();

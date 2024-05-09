@@ -1,5 +1,4 @@
 import { useTheme } from "../../hooks/useTheme";
-import Search from "../Search/Search";
 import Navbar from "../Navbar/Navbar";
 import "./Header.scss";
 

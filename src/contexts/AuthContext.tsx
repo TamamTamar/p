@@ -1,8 +1,7 @@
 import { jwtDecode } from "jwt-decode";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
-import * as auth from "../services/auth";
-import dialogs from "../ui/dialogs";
 import { RegisterUser } from "../@types/types";
+import * as auth from "../services/auth";
 
 interface AuthContextType {
   token: string | null;

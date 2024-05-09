@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+
 
 import { useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
@@ -9,7 +9,7 @@ import { CardType, updateCard } from '../@types/cardData';
 import { getMyCardData, getMyCards, updateMyCard } from '../services/cards';
 import dialogs from '../ui/dialogs';
 
-const mapToAllowedFields = (card: updateCard) => ({ 
+const mapToAllowedFields = (card: updateCard) => ({
     title: card.title,
     subtitle: card.subtitle,
     description: card.description,
@@ -55,11 +55,11 @@ const UpdateCard = () => {
 
     const onUpdateCard = (card: updateCard) => {
         const sanitizedCard = mapToAllowedFields(card);
-        updateMyCard( id ?? "",sanitizedCard )
+        updateMyCard(id ?? "", sanitizedCard)
             .then(() => {
                 dialogs.success("Success", "Card Updated Successfully").then(() => {
                     navigate('/my-cards');
-                });  
+                });
             })
             .catch(err => {
                 dialogs.error("Error", err.response.data);
@@ -75,7 +75,8 @@ const UpdateCard = () => {
         <div className="create-card-container bg-purple-900  text-white dark:bg-slate-600">
             <form noValidate onSubmit={handleSubmit(onUpdateCard)}>
                 <h2>Update Card</h2>
-                {/* Title */}
+              
+                    {/* Title */}
                 <section>
                     <input
                         className="create-card-input"
