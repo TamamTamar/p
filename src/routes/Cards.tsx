@@ -21,7 +21,7 @@ const Cards = ({ favoritesOnly = false }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [favorites, setFavorites] = useState<string[]>([]);
-  const { token } = useAuth();
+  const { token,isLoggedIn } = useAuth();
   const { searchTerm } = useSearch();
 
   useEffect(() => {
@@ -56,11 +56,14 @@ const Cards = ({ favoritesOnly = false }) => {
       {filteredCards.map((card: CardType) => (
         <div key={card._id}>
           <Link to={`/cards/${card._id}`} className="card-link dark:bg-gray-500 dark:text-white rounded-lg shadow-lg p-4">
-            <FavoriteButton
-              cardId={card._id}
-              isFavorite={favorites.includes(card._id)}
-              onToggleFavorite={addToFavorites} token={""}
-            />
+            {isLoggedIn && (
+                <FavoriteButton
+                cardId={card._id}
+                isFavorite={favorites.includes(card._id)}
+                onToggleFavorite={addToFavorites} token={""}
+              />
+            )}
+          
             <h2 className="card-title">{card.title}</h2>
             <hr />
             <p className="card-subtitle">{card.subtitle}</p>

@@ -15,7 +15,7 @@ const FavoriteButton: FC<FavoriteButtonProps> = ({ cardId, isFavorite, onToggleF
                 onToggleFavorite(cardId); // Update local state after successful server call
             })
             .catch(err => {
-               dialogs.error("Error", err.response.data);
+                console.error('Error toggling favorite:', err);
             });
     };
 
