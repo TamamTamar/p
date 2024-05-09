@@ -7,6 +7,7 @@ import { useAuth } from '../contexts/AuthContext';
 import './CreateCard.scss';
 import { CardType } from '../@types/cardData';
 import { getMyCardData, getMyCards, updateMyCard } from '../services/cards';
+import dialogs from '../ui/dialogs';
 
 const mapToAllowedFields = (card: CardType) => ({ 
     title: card.title,
@@ -56,10 +57,12 @@ const UpdateCard = () => {
         const sanitizedCard = mapToAllowedFields(card);
         updateMyCard( id ?? "",sanitizedCard )
             .then(() => {
-                navigate('/my-cards');
+                dialogs.success("Success", "Card Updated Successfully").then(() => {
+                    navigate('/my-cards');
+                });  
             })
             .catch(err => {
-                console.error('Error updating card:', err);
+                dialogs.error("Error", err.response.data);
                 if (err.response) {
                     console.error('API Error Response:', err.response.data); // Log error response
                 }

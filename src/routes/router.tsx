@@ -12,6 +12,7 @@ import MyCards from "./MyCards.tsx";
 import UpdateCard from "./UpdateCard.tsx";
 import About from "../components/About/About.tsx";
 
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -53,7 +54,7 @@ export const router = createBrowserRouter([
       {
         path: "/update/:id",
         element: <UpdateCard />,
-      },
+      },     
     ],
   },
 ]);

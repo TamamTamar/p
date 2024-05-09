@@ -7,6 +7,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { CardData } from "../@types/cardData";
 import { createNewCard } from "../services/cards";
 
+
 const CreateCard = () => {
     const { token } = useAuth(); // Get the token from the context
     const navigate = useNavigate();
