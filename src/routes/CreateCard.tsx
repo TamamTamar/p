@@ -1,15 +1,11 @@
 import { useForm } from "react-hook-form";
-
-import { BsEye, BsEyeSlashFill } from "react-icons/bs";
-import { useState } from "react";
-import axios from 'axios'; // Assuming axios is used for HTTP requests
 import dialogs from "../ui/dialogs";
 import { useNavigate } from "react-router-dom";
-
 import patterns from "../validation/patterns";
 import "./CreateCard.scss";
 import { useAuth } from "../contexts/AuthContext";
 import { CardData } from "../@types/cardData";
+import { createNewCard } from "../services/cards";
 
 const CreateCard = () => {
     const { token } = useAuth(); // Get the token from the context
@@ -23,9 +19,7 @@ const CreateCard = () => {
         }
 
         try {
-            await axios.post('https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards', data, {
-                headers: { 'x-auth-token': token }
-            });
+            await createNewCard(data);
             dialogs.success("Success", "Card Created Successfully").then(() => {
                 navigate("/my-cards");
             });

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { CardData } from "../@types/cardData";
 
 const baseUrl = "https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards";
 
@@ -32,4 +33,27 @@ export const isFavoriteUrl = (id: string)  => {
     });
   }
 
- 
+  export const createNewCard = (data:CardData)  => {
+    const url = `${baseUrl}`;
+    return axios.post(url, data, {
+      headers: {
+        "x-auth-token": localStorage.getItem("token"),
+      },
+    });
+  }
+  export const getMyCardData = (id: string)  => {
+    const url = `${baseUrl}/${id}`;
+    return axios.get(url, {
+      headers: {
+        "x-auth-token": localStorage.getItem("token"),
+      },
+    });
+  }
+  export const updateMyCard = (id: string, data:CardData)  => {
+    const url = `${baseUrl}/${id}`;
+    return axios.put(url, data, {
+      headers: {
+        "x-auth-token": localStorage.getItem("token"),
+      },
+    });
+  }

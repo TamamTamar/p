@@ -65,3 +65,5 @@ export type CardType = {
     createdAt: string;
     __v: number;
   };
+
+  
