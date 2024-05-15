@@ -44,7 +44,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className="nav-right">
-          {!isLoggedIn && <NavLink to="/login">Login</NavLink>}
+          {!isLoggedIn && <NavLink to="/login" className="font-bold" >Login</NavLink>}
           {isLoggedIn && (
             <div className="user-menu" onClick={toggleUserMenu}>
               <FaUserCircle />
