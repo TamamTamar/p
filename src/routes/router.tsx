@@ -10,7 +10,7 @@ import Profile from "./Profile.tsx";
 import CreateCard from "./CreateCard.tsx";
 import MyCards from "./MyCards.tsx";
 import UpdateCard from "./UpdateCard.tsx";
-import About from "../components/About/About.tsx";
+import About from "./About/About.tsx";
 import ProtectedRouteBiz from "../components/ProtectedRouteBiz.tsx";
 
 
@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
       { path: "/login", element: <Login /> },
       { path: "/cards", element: <Cards /> },
       { path: "/cards/:id", element: <Card /> },
-      {path:"/about", element:<About/>},
+      { path: "/about", element: <About /> },
       {
         path: "/profile",
         element: (
@@ -39,32 +39,32 @@ export const router = createBrowserRouter([
         path: "/favorites",
         element: (
           <ProtectedRoute>
-           <Cards favoritesOnly={true} />
+            <Cards favoritesOnly={true} />
           </ProtectedRoute>
         ),
       },
       {
         path: "/create-card",
-        
+
         element:
-        <ProtectedRouteBiz>
-         <CreateCard />
-        </ProtectedRouteBiz>,
+          <ProtectedRouteBiz>
+            <CreateCard />
+          </ProtectedRouteBiz>,
       },
       {
         path: "/my-cards",
         element:
-         <ProtectedRouteBiz>
-         <MyCards />
-        </ProtectedRouteBiz>,
+          <ProtectedRouteBiz>
+            <MyCards />
+          </ProtectedRouteBiz>,
       },
       {
         path: "/update/:id",
         element:
-         <ProtectedRouteBiz>
-         <UpdateCard />
-        </ProtectedRouteBiz>,
-      },     
+          <ProtectedRouteBiz>
+            <UpdateCard />
+          </ProtectedRouteBiz>,
+      },
     ],
   },
 ]);

@@ -1,5 +1,5 @@
 import "./App.scss";
-import About from "./components/About/About";
+import About from "./routes/About/About";
 import Button from "./components/Button";
 import Card from "./components/Card/Card";
 import Counter from "./components/Counter/Counter";
@@ -11,7 +11,7 @@ import Spinners from "./components/Spinners";
 function App() {
   return (
     <div>
-      <Input label="Name" placeholder="Enter your name"/>
+      <Input label="Name" placeholder="Enter your name" />
       <Card>
         <FlexRow className="gap-4">
           <h2>Jack Of Spades</h2>

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import FavoriteButton from "../components/FavoriteButton";
 import { useAuth } from "../contexts/AuthContext";
 import "./Cards.scss";
-
 import { CardType } from "../@types/cardData";
 import { useSearch } from "../hooks/useSearch";
 import { getCards } from "../services/cards";
