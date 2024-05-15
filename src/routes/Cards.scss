@@ -1,8 +1,26 @@
-body.dark{
-    background-color: rgb(55 65 81);
-    color: #fff;
-
+:root {
+    --primary-color: #5c7398;
+    --text-color: #fff;
 }
+
+body.dark {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+.page-container {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    gap: 20px;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
 .cards-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -13,53 +31,75 @@ body.dark{
     margin-top: 5em;
     margin-left: 4em;
     margin-right: 4em;
+}
 
-    .card-link {
-        display: flex;
-        flex-direction: column;
-        /* background-color: #fff; */
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.2s;
-        height: 100%;
-        overflow: hidden;
-        justify-content: center;
+@media (max-width: 1024px) {
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        margin-left: 2em;
+        margin-right: 2em;
+    }
+}
+
+@media (max-width: 768px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+        margin: 0 1em;
+    }
+
+    .cards-container h1 {
+        font-size: 3rem;
+    }
+}
+
+.card-link {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    height: 100%;
+    overflow: hidden;
+    justify-content: left;
+    text-align: left;
+    background-color: #f0f0f0; /* רקע אפור בהיר */
+    color: #333; /* צבע טקסט כהה */
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    .favorite-icon {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 10;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+        margin: 10px 0;
         text-align: center;
+        color: #007bff; /* כותרת כחולה */
+    }
 
-/* .card-link.dark{
-    background-color: rgb(75, 86, 104);
-    color: #fff;
+    .card-subtitle {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
 
-} */
+    .card-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px 10px 0 0;
+    }
 
-        &:hover {
-            transform: scale(1.05);
-        }
-
-        .card-title {
-            font-size: 1.25rem;
-            margin: 10px 0;
-            align-items: center;
-            text-align: center;
-        }
-
-        .card-subtitle {
-            font-size: 1rem;
-            margin-bottom: 10px;
-        }
-
-        .card-image {
-            width: 100%;
-            height: 300px;  
-                object-fit: cover;
-            border-radius: 10px 10px 0 0;
-        }
-
-        hr {
-            border: none;
-            height: 1px;
-            background-color: #ddd;
-            margin: 10px 0;
-        }
+    hr {
+        border: none;
+        height: 1px;
+        background-color: #ddd;
+        margin: 10px 0;
     }
 }
