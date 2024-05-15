@@ -30,7 +30,7 @@ const Login = () => {
   } = useForm<LoginUser>();
 
   return (
-    <div className="create-card-container bg-purple-900  text-white dark:bg-slate-600">
+    <div className="create-card-container bg-blue-950  text-white dark:bg-slate-600">
       <form noValidate onSubmit={handleSubmit(onLogin)}>
         {/* email */}
         <section>

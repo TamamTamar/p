@@ -5,7 +5,7 @@ import "./Header.scss";
 function Header() {
   const { theme } = useTheme();
   return (
-    <header className="bg-blue-300 text-blue-950 dark:bg-blue-950 p-5 dark:text-blue-300 text-5xl font-extralight h-40 text-center">
+    <header className="bg-blue-300 text-blue-950 dark:bg-blue-950 p-5 dark:text-white text-5xl font-extralight h-40 text-center">
       <Navbar  />
     </header>
   );

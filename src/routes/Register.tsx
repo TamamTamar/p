@@ -9,6 +9,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { registerMock } from "../mocks/register";
 import dialogs from "../ui/dialogs";
 import "./CreateCard.scss";
+import auth from "../services/auth";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -28,8 +29,9 @@ const Register = () => {
   const [isBusiness, setIsBusiness] = useState(false);
 
   const onRegister = (data: RegisterUser) => {
-    console.log(data)
-    registerUser(data).then(() => {
+    auth.register(data)
+    .then((res) => {
+ localStorage.setItem("user_id", res.data._id);
       dialogs.success("Success", "Register").then(() => {
         navigate("/login");
       });
@@ -44,7 +46,7 @@ const Register = () => {
   };
 
   return (
-    <div className="create-card-container bg-purple-900  text-white dark:bg-slate-600">
+    <div className="create-card-container bg-blue-950  text-white dark:bg-slate-600">
       <form noValidate onSubmit={handleSubmit(onRegister)}>
         {/* firstName */}
         <section>
@@ -302,11 +304,10 @@ const Register = () => {
 
         <button disabled = {!isValid} type="submit">Register</button>
         <div className="mt-4 text-center">
-          <span className="text-sm text-gray-700 dark:text-gray-300">Already have an account? </span>
-          <Link className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500" to="/login">Login</Link>
+          <span className="text-sm text-gray-300">Already have an account? </span>
+          <Link className="text-sm font-medium text-blue-400 hover:underline" to="/login">Login</Link>
         </div>
       </form>
-      {/* <DevTool control={control} /> */}
     </div>
   );
 };

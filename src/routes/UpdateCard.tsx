@@ -55,7 +55,8 @@ const UpdateCard = () => {
         const sanitizedCard = mapToAllowedFields(card);
         updateMyCard(id ?? "", sanitizedCard)
             .then(() => {
-                dialogs.success("Success", "Card Updated Successfully").then(() => {
+                dialogs.success("Success", "Card Updated Successfully")
+                .then(() => {
                     navigate('/my-cards');
                 });
             })
@@ -70,7 +71,7 @@ const UpdateCard = () => {
 
 
     return (
-        <div className="create-card-container bg-purple-900  text-white dark:bg-slate-600">
+        <div className="create-card-container bg-blue-950  text-white dark:bg-slate-600">
             <form noValidate onSubmit={handleSubmit(onUpdateCard)}>
                 <h2>Update Card</h2>
               

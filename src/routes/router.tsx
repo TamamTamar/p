@@ -11,6 +11,7 @@ import CreateCard from "./CreateCard.tsx";
 import MyCards from "./MyCards.tsx";
 import UpdateCard from "./UpdateCard.tsx";
 import About from "../components/About/About.tsx";
+import ProtectedRouteBiz from "../components/ProtectedRouteBiz.tsx";
 
 
 export const router = createBrowserRouter([
@@ -45,15 +46,24 @@ export const router = createBrowserRouter([
       {
         path: "/create-card",
         
-        element: <CreateCard />,
+        element:
+        <ProtectedRouteBiz>
+         <CreateCard />
+        </ProtectedRouteBiz>,
       },
       {
         path: "/my-cards",
-        element: <MyCards />,
+        element:
+         <ProtectedRouteBiz>
+         <MyCards />
+        </ProtectedRouteBiz>,
       },
       {
         path: "/update/:id",
-        element: <UpdateCard />,
+        element:
+         <ProtectedRouteBiz>
+         <UpdateCard />
+        </ProtectedRouteBiz>,
       },     
     ],
   },

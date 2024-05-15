@@ -56,19 +56,6 @@ const MyCards: FC = () => {
         });
     }
 
-/*     const deleteCard = (cardId: string) => {
-      showConfirmDialog().then((result) => {
-        if (result) {
-            deleteCardById(cardId)
-                .then(() => {
-                    setCards(cards.filter(card => card._id !== cardId));
-                })
-                .catch(err => {
-                    console.error("Error deleting card:", err);
-                });
-        }
-      ); */
-
     const addToFavorites = (cardId: string) => {
         const newFavorites = favorites.includes(cardId)
             ? favorites.filter(id => id !== cardId)
@@ -115,11 +102,11 @@ const MyCards: FC = () => {
                     </div>
                 </div>
             ))}
-             <Link to="/create-card" className="create-card-button"> 
-             <FaPlus/>
-             </Link>
+            <Link to="/create-card" className="create-card-button">
+                <FaPlus />
+            </Link>
         </div>
-       
+
     );
 };
 

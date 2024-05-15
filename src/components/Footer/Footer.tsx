@@ -10,17 +10,19 @@ function Footer() {
   const navigate = useNavigate();
   const { isLoggedIn, user } = useAuth();
   return (
-
-    <footer className=" flex justify-around bg-pink-800 dark:bg-gray-900 md:bg-pink-800 p-5 text-white text-5xl font-extralight  text-center">
-      <PiWarningCircleBold className=" cursor-pointer text-white text-base" onClick={() => navigate("/about")} />
-      {isLoggedIn && <FaHeart className=" cursor-pointer text-white text-base" onClick={() => navigate("/favorites")} />}
-      {isLoggedIn && user?.isBusiness && (
-          <FaAddressCard className=" cursor-pointer text-white text-base" onClick={() => navigate("/my-cards")} />
+    <>
+      <footer className=" flex justify-around bg-blue-300 dark:bg-blue-950  p-5 dark:text-white text-5xl">
+        <PiWarningCircleBold className=" cursor-pointer text-blue-950 dark:text-white text-base" onClick={() => navigate("/about")} />
+        {isLoggedIn && <FaHeart className=" cursor-pointer text-blue-950 dark:text-white text-base" onClick={() => navigate("/favorites")} />}
+        {isLoggedIn && user?.isBusiness && (
+          <FaAddressCard className=" cursor-pointer  text-blue-950 dark:text-white text-base" onClick={() => navigate("/my-cards")} />
         )}
 
 
 
-    </footer>
+      </footer>
+    </>
+
   );
 }
 

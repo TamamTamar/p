@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { CardType } from "../@types/cardData";
 import FavoriteButton from "../components/FavoriteButton";
 import { useAuth } from "../contexts/AuthContext";
+import "./Cards.scss";
+
+import { CardType } from "../@types/cardData";
 import { useSearch } from "../hooks/useSearch";
 import { getCards } from "../services/cards";
-import "./Cards.scss";
+
+
+
 
 
 const Cards = ({ favoritesOnly = false }) => {
@@ -45,11 +49,11 @@ const Cards = ({ favoritesOnly = false }) => {
 
   return (
     <>
-      <div className="cards-container">
+      <div className="cards-container dark:bg-gray-700">
 
         {filteredCards.map((card: CardType) => (
           <div key={card._id}>
-            <Link to={`/cards/${card._id}`} className="card-link dark:bg-gray-500 dark:text-white rounded-lg shadow-lg p-4">
+            <Link to={`/cards/${card._id}`} className="card-link bg-blue-100 dark:bg-gray-500 dark:text-white rounded-lg shadow-lg p-4">
               {isLoggedIn && (
                 <FavoriteButton
                   cardId={card._id}

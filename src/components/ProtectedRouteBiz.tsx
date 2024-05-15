@@ -2,7 +2,7 @@ import { Navigate } from "react-router-dom";
 import { FCC } from "../@types/types";
 import { useAuth } from "../contexts/AuthContext";
 
-const ProtectedRouteBusiness: FCC = ({ children }) => {
+const ProtectedRouteBiz: FCC = ({ children }) => {
     const isLoggedIn = localStorage.getItem("token");
     const { user } = useAuth();
 
@@ -13,4 +13,4 @@ const ProtectedRouteBusiness: FCC = ({ children }) => {
     return <>{children}</>;
 };
 
-export default ProtectedRouteBusiness;
+export default ProtectedRouteBiz;
