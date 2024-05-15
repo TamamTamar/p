@@ -10,9 +10,13 @@ const Navbar = () => {
   const { isLoggedIn, user, logout } = useAuth();
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(menuOpen => !menuOpen);
+  };
+  const toggleUserMenu = () => {
+    setUserMenuOpen(userMenuOpen => !userMenuOpen);
   };
 
 
@@ -42,9 +46,9 @@ const Navbar = () => {
         <div className="nav-right">
           {!isLoggedIn && <NavLink to="/login">Login</NavLink>}
           {isLoggedIn && (
-            <div className="user-menu">
+            <div className="user-menu" onClick={toggleUserMenu}>
               <FaUserCircle />
-              <div className="user-menu-content">
+              <div className={`user-menu-content ${userMenuOpen ? "open" : ""}`}>
                 <button className="user-name-button mt-1" onClick={() => navigate("/profile")}>
                   {user && `${user.name.first.charAt(0).toUpperCase() + user.name.first.slice(1)} ${user.name.last.charAt(0).toUpperCase() + user.name.last.slice(1)}`}
                 </button>
