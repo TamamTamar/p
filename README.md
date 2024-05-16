@@ -1,30 +1,14 @@
-# React + TypeScript + Vite
+פלטפורמת ניהול כרטיסי ביקור דיגיטליים
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+סקירה: ברוכים הבאים לפלטפורמת ניהול כרטיסי הביקור הדיגיטליים. אפליקציה זו מספקת ממשק חלק ליצירה, ניהול ושיתוף של כרטיסי ביקור דיגיטליים. בין אם אתם מקצוען בעסקים או מישהו שמחפש להרחיב את רשת הקשרים שלו, הפלטפורמה הזו מציעה את כל הכלים הנדרשים לניהול יעיל של אנשי הקשרים הדיגיטליים שלכם.
 
-Currently, two official plugins are available:
+תכונות:
+אימות משתמש: התחברות מאובטחת ורישום למשתמשים.
+יצירת כרטיסים דיגיטליים: יצירה קלה והתאמה אישית של כרטיסי ביקור דיגיטליים.
+ניהול כרטיסים: עריכה או מחיקה של כרטיסים שיצרתם.
+כרטיסים מועדפים: סימון כרטיסים כמועדפים לגישה מהירה.
+פונקציית חיפוש: חיפוש מהיר בכרטיסים לפי כותרת.
+מצב חשוך: החלפה בין ערכות נושא בהירות וחושך לנגישות טובה יותר.
+עיצוב רספונסיבי: מותאם לכל מכשיר, החל ממחשבים ניידים ועד למכשירי סמארטפון.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+טכנולוגיות בשימוש:  React, Tailwind CSS, Material Tailwind, Axios State Management: React Context API Routing: React Router Icons: React Icons Styling: SCSS, Tailwind CSS
